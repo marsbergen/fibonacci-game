@@ -1,0 +1,55 @@
+$color: orange;
+$border: black;
+$highlight: #feffb0;
+$highlight-green: #00ff16;
+
+body {
+  padding: 0;
+  margin: 0;
+
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.grid {
+  width: 100vw;
+  height: 100vh;
+}
+
+.row {
+  width: 100vw;
+  display: flex;
+  border-bottom: 1px solid $border;
+
+  &:first-child {
+    border-top: 1px solid $border;
+  }
+}
+
+.cell {
+  flex: 1 0 0;
+  border-right: 1px solid $border;
+  //width: 2%;
+  //height: calc((100vh - 51px)  / 50);
+  width: 5%;
+  height: calc((100vh - 51px)  / 20);
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  transition: background ease-in-out .3s;
+
+  &:first-child {
+    border-left: 1px solid $border;
+  }
+}
+
+.cell--highlight {
+  background: $highlight;
+}
+
+.cell--highlight-green {
+  background: $highlight-green;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="main.css"/>
+</head>
+<body ng-app="gameApp">
+<div class="container" ng-controller="appController as ctrl">
+
+    <div class="grid">
+        <div class="row" ng-repeat="row in ctrl.getArray() track by $index" ng-init="xAxis = $index">
+            <div class="cell"
+                 ng-repeat="cell in ctrl.getArray() track by $index"
+                 ng-init="yAxis = $index"
+                 ng-click="ctrl.activate(xAxis, yAxis)"
+                 color-highlight="ctrl.cells[xAxis][yAxis]">
+                <span ng-if="ctrl.cells[xAxis][yAxis]">{{ ctrl.cells[xAxis][yAxis] }}</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
