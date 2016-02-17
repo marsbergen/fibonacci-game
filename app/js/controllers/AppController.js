@@ -4,7 +4,9 @@ export default class AppController {
   constructor() {
     this.cells = {};
 
-    this.grid = 10;
+    this.highlight = {};
+
+    this.grid = 50;
   }
 
   activate(xAxis, yAxis) {
@@ -29,10 +31,14 @@ export default class AppController {
         } else {
           this.cells[xAxis][row]++;
         }
+
+        //this.highlight[xAxis][row] = true;
+        //$timeout(function() {
+        //  this.highlight[xAxis][row] = false;
+        //}, 1000);
       }
     }
 
-    console.clear();
     for (var rowKey in this.cells) {
       if (!this.cells.hasOwnProperty(rowKey)) {
         continue;
@@ -81,6 +87,9 @@ export default class AppController {
       if (prevY != undefined) {
         var nextY = fibSequence[parseInt(n) + 1];
         if (nextY != undefined && row[prevY] + row[yAxis] != row[nextY]) {
+          if (row[yAxis] > 0) {
+            fibbi.push({x: xAxis, y: yAxis});
+          }
           fibbiBatch.push(fibbi);
           fibbi = [];
           // It is cleared when not needed (yet)
@@ -100,7 +109,6 @@ export default class AppController {
     }
 
     for (var batch = 0; batch < fibbiBatch.length; batch++) {
-      console.log(xAxis, batch, fibbiBatch[batch]);
       if (fibbiBatch[batch].length > 4) {
         return fibbiBatch[batch];
       }
