@@ -1,11 +1,16 @@
 $color: orange;
-$border: black;
+$border: #384759;
 $highlight: #feffb0;
 $highlight-green: #00ff16;
+$background-even: #f7f7f7;
+$background-even-col: #bdbdbd;
 
 body {
   padding: 0;
   margin: 0;
+
+  font-family: sans-serif;
+  font-size: 12px;
 
   -webkit-transform: translate3d(0,0,0);
   -moz-transform: translate3d(0,0,0);
@@ -27,6 +32,10 @@ body {
   &:first-child {
     border-top: 1px solid $border;
   }
+
+  &:nth-child(even) {
+    //background-color: $background-even;
+  }
 }
 
 .cell {
@@ -34,7 +43,6 @@ body {
   border-right: 1px solid $border;
   width: 2%;
   height: calc((100vh - 51px)  / 50);
-  font-size: 14px;
   text-align: center;
   overflow: hidden;
   transition: background ease-in-out .3s;
@@ -42,6 +50,10 @@ body {
 
   &:first-child {
     border-left: 1px solid $border;
+  }
+
+  &:nth-child(even) {
+    //background-color: $background-even-col;
   }
 }
 

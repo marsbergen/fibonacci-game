@@ -16,7 +16,7 @@
                  ng-class="{'cell--highlight': ctrl.highlight[xAxis][yAxis]}"
                  ng-click="ctrl.activate(xAxis, yAxis)"
                  color-highlight="ctrl.cells[xAxis][yAxis]">
-                <span ng-if="ctrl.cells[xAxis][yAxis]">{{ ::ctrl.cells[xAxis][yAxis] }}</span>
+                <span ng-if="ctrl.cells[xAxis][yAxis]">{{ ctrl.cells[xAxis][yAxis] }}</span>
             </div>
         </div>
     </div>
