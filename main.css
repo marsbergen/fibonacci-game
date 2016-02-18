@@ -1,0 +1,54 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+body {
+  background: #ffffff url("https://storage.googleapis.com/static.q42.nl/images/videogrid.png");
+  background-size: 5px;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 12px;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.loading {
+  text-align: center;
+  margin: 50px auto;
+  font-size: 18px; }
+
+.grid {
+  width: 100vw;
+  height: 100vh; }
+
+.row {
+  width: 100vw;
+  display: flex;
+  border-bottom: 2px solid #80bd42; }
+  .row:first-child {
+    border-top: 2px solid #80bd42; }
+
+.cell {
+  flex: 1 0 0;
+  border-right: 2px solid #80bd42;
+  width: 2%;
+  height: calc((100vh - 102px)  / 50);
+  text-align: center;
+  overflow: hidden;
+  transition: background ease-in-out .3s;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .cell:first-child {
+    border-left: 2px solid #80bd42; }
+
+.cell--highlight {
+  background: #eded00; }
+
+.cell--highlight-green {
+  background: #80bd42; }
