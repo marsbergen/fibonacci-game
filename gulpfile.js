@@ -12,6 +12,11 @@ gulp.task('copy:html', function () {
     .pipe(gulp.dest('.tmp'));
 });
 
+gulp.task('copy:root', ['copy:html', 'sass', 'js'], function () {
+  return gulp.src('.tmp/**')
+    .pipe(gulp.dest('.'));
+});
+
 gulp.task('sass', function () {
   return gulp.src('app/sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
@@ -36,3 +41,5 @@ gulp.task('watch', ['copy:html', 'sass', 'js'], function() {
   gulp.watch('app/sass/**/*', ['sass']);
   gulp.watch('static/**/*', ['copy:html']);
 });
+
+gulp.task('build', ['copy:html', 'sass', 'js', 'copy:root']);
