@@ -1,11 +1,19 @@
-$color: orange;
-$border: #384759;
-$highlight: #feffb0;
-$highlight-green: #00ff16;
+$color: #222222;
+$border: #80bd42;
+$border-size: 2px;
+$highlight: #eded00;
+$highlight-green: #80bd42;
 $background-even: #f7f7f7;
 $background-even-col: #bdbdbd;
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 body {
+  background: #ffffff url("https://storage.googleapis.com/static.q42.nl/images/videogrid.png");
+  background-size: 5px;
+  color: #ffffff;
   padding: 0;
   margin: 0;
 
@@ -19,6 +27,12 @@ body {
   transform: translate3d(0,0,0);
 }
 
+.loading {
+  text-align: center;
+  margin: 50px auto;
+  font-size: 18px;
+}
+
 .grid {
   width: 100vw;
   height: 100vh;
@@ -27,10 +41,10 @@ body {
 .row {
   width: 100vw;
   display: flex;
-  border-bottom: 1px solid $border;
+  border-bottom: $border-size solid $border;
 
   &:first-child {
-    border-top: 1px solid $border;
+    border-top: $border-size solid $border;
   }
 
   &:nth-child(even) {
@@ -40,16 +54,20 @@ body {
 
 .cell {
   flex: 1 0 0;
-  border-right: 1px solid $border;
+  border-right: $border-size solid $border;
   width: 2%;
-  height: calc((100vh - 51px)  / 50);
+  height: calc((100vh - 102px)  / 50);
   text-align: center;
   overflow: hidden;
   transition: background ease-in-out .3s;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   &:first-child {
-    border-left: 1px solid $border;
+    border-left: $border-size solid $border;
   }
 
   &:nth-child(even) {

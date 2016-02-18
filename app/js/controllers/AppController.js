@@ -4,8 +4,6 @@ export default class AppController {
   constructor() {
     this.cells = {};
 
-    this.highlight = {};
-
     this.grid = 50;
   }
 
@@ -31,11 +29,6 @@ export default class AppController {
         } else {
           this.cells[xAxis][row]++;
         }
-
-        //this.highlight[xAxis][row] = true;
-        //$timeout(function() {
-        //  this.highlight[xAxis][row] = false;
-        //}, 1000);
       }
     }
 
@@ -120,13 +113,6 @@ export default class AppController {
 
   getArray() {
     return new Array(this.grid);
-  }
-
-  fibonacci(n) {
-    if (n <= 1)
-      return n;
-    else
-      return fibonacci(n - 1) + fibonacci(n - 2);
   }
 
   isFib(val) {

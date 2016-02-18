@@ -8,7 +8,9 @@
 <body ng-app="gameApp">
 <div class="container" ng-controller="appController as ctrl">
 
-    <div class="grid">
+    <div ng-show class="loading">Loading the grid...</div>
+
+    <div class="grid" ng-cloak>
         <div class="row" ng-repeat="row in ctrl.getArray() track by $index" ng-init="xAxis = $index">
             <div class="cell"
                  ng-repeat="cell in ctrl.getArray() track by $index"
@@ -22,6 +24,6 @@
     </div>
 
 </div>
-<script src="app.js"></script>
+<script src="app.js" type="text/javascript"></script>
 </body>
 </html>
