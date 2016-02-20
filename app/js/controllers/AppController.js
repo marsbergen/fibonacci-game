@@ -15,7 +15,7 @@ export default class AppController {
    */
   activate(xAxis, yAxis) {
     // Walk through every row in the grid
-    for (var row = 0; row < this.grid; row++) {
+    for (let row = 0; row < this.grid; row++) {
       // If we don't have any cells of this row stored it's undefined by default
       // to make sure we don't get JS errors, we make it an empty object
       if (!this.cells[row]) {
@@ -51,16 +51,16 @@ export default class AppController {
     }
 
     // Now that all cell activation and updating is done, check for fibonacci sequences per row
-    for (var rowKey in this.cells) {
+    for (let rowKey in this.cells) {
       if (!this.cells.hasOwnProperty(rowKey)) {
         continue;
       }
 
       // Check for fibonacci in the current row
-      var fib = this.checkFibonacci(this.cells[rowKey]);
+      let fib = this.checkFibonacci(this.cells[rowKey]);
       if (!!fib) {
         // Found a fibonacci! Now read the returned array with y-axes and set all the cells to 0
-        for (var c = 0; c < fib.length; c++) {
+        for (let c = 0; c < fib.length; c++) {
           this.cells[rowKey][fib[c]] = 0;
         }
       }
