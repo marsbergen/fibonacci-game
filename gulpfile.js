@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var Server = require('karma').Server;
 var gutil = require('gulp-util');
 var sass = require('gulp-sass');
 var prefixer = require('gulp-autoprefixer');
@@ -6,6 +7,7 @@ var del = require('del');
 var babel = require('babelify');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
+var jasmine = require('gulp-jasmine');
 
 gulp.task('copy:html', function () {
   return gulp.src('static/**/*.html')
@@ -43,3 +45,10 @@ gulp.task('watch', ['copy:html', 'sass', 'js'], function() {
 });
 
 gulp.task('build', ['copy:html', 'sass', 'js', 'copy:root']);
+
+gulp.task('test', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});

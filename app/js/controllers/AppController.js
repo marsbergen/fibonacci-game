@@ -62,7 +62,7 @@ export default class AppController {
     }
 
     var prevY;
-    var oneBeforePrevY = 0;
+    var oneBeforePrevY;
     var fibbi = [];
     var fibbiBatch = [];
 
@@ -78,27 +78,31 @@ export default class AppController {
       }
 
       if (prevY != undefined) {
-        var nextY = fibSequence[parseInt(n) + 1];
+        var nextY = parseInt(fibSequence[parseInt(n) + 1]);
         if (nextY != undefined && row[prevY] + row[yAxis] != row[nextY]) {
           if (row[yAxis] > 0) {
-            fibbi.push({x: xAxis, y: yAxis});
+            fibbi.push({x: xAxis, y: parseInt(yAxis)});
           }
           fibbiBatch.push(fibbi);
           fibbi = [];
-          // It is cleared when not needed (yet)
-        } else if (oneBeforePrevY != undefined && row[yAxis] - row[prevY] != row[oneBeforePrevY]) {
+        }
+
+        if (nextY == undefined && oneBeforePrevY != undefined && row[yAxis] - row[prevY] != row[oneBeforePrevY]) {
+          if (row[yAxis] > 0) {
+            fibbi.push({x: xAxis, y: parseInt(yAxis)});
+          }
+
           fibbiBatch.push(fibbi);
           fibbi = [];
-          fibbi.push({x: xAxis, y: prevY});
         }
       }
 
       if (row[yAxis] > 0) {
-        fibbi.push({x: xAxis, y: yAxis});
+        fibbi.push({x: xAxis, y: parseInt(yAxis)});
       }
 
-      oneBeforePrevY = prevY;
-      prevY = yAxis;
+      oneBeforePrevY = parseInt(prevY);
+      prevY = parseInt(yAxis);
     }
 
     for (var batch = 0; batch < fibbiBatch.length; batch++) {
