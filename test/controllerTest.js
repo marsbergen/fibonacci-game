@@ -17,7 +17,7 @@ describe('AppController', () => {
       9: 1
     };
 
-    expect(controller.checkFibonacci(row, 1)).toBeFalsy();
+    expect(controller.checkFibonacci(row)).toBeFalsy();
   });
 
   it('should return an array of cell objects if there is a fibonacci found in a row object', () => {
@@ -36,15 +36,9 @@ describe('AppController', () => {
       9: 1
     };
 
-    var expectation = [
-      {x: 1, y: 1},
-      {x: 1, y: 2},
-      {x: 1, y: 3},
-      {x: 1, y: 4},
-      {x: 1, y: 5}
-    ];
+    var expectation = [ 1, 2, 3, 4, 5 ];
 
-    expect(controller.checkFibonacci(row, 1)).toEqual(expectation);
+    expect(controller.checkFibonacci(row)).toEqual(expectation);
   });
 
   it('should return an array of cell objects if there is a fibonacci found in a row object and the fib sequence is surrounded by 0', () => {
@@ -63,15 +57,9 @@ describe('AppController', () => {
       9: 0
     };
 
-    var expectation = [
-      {x: 1, y: 1},
-      {x: 1, y: 2},
-      {x: 1, y: 3},
-      {x: 1, y: 4},
-      {x: 1, y: 5}
-    ];
+    var expectation = [ 1, 2, 3, 4, 5 ];
 
-    expect(controller.checkFibonacci(row, 1)).toEqual(expectation);
+    expect(controller.checkFibonacci(row)).toEqual(expectation);
   });
 
   it('should return an array of cell objects if there is a fibonacci found in a row object and the fib sequence is surrounded by undefined', () => {
@@ -90,14 +78,23 @@ describe('AppController', () => {
       9: undefined
     };
 
-    var expectation = [
-      {x: 1, y: 1},
-      {x: 1, y: 2},
-      {x: 1, y: 3},
-      {x: 1, y: 4},
-      {x: 1, y: 5}
-    ];
+    var expectation = [ 1, 2, 3, 4, 5 ];
 
-    expect(controller.checkFibonacci(row, 1)).toEqual(expectation);
+    expect(controller.checkFibonacci(row)).toEqual(expectation);
+  });
+
+  it('should set all cell values to 1 in the same row and column of the activated cell when the activate is trigger with the correct xAxis and yAxis', () => {
+    let controller = new AppController();
+    controller.activate(4, 6);
+
+    expect(controller.cells[4][0]).toEqual(1);
+    expect(controller.cells[4][1]).toEqual(1);
+    expect(controller.cells[4][2]).toEqual(1);
+    expect(controller.cells[4][6]).toEqual(1);
+    expect(controller.cells[4][49]).toEqual(1);
+    expect(controller.cells[1][6]).toEqual(1);
+    expect(controller.cells[4][6]).toEqual(1);
+    expect(controller.cells[6][6]).toEqual(1);
+    expect(controller.cells[7][7]).toBeFalsy();
   });
 });
