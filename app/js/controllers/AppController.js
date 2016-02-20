@@ -198,5 +198,4 @@ export default class AppController {
     }
     else return !!(isPerfect1 || isPerfect2);
   }
-
 }

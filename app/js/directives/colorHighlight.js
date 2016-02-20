@@ -15,7 +15,6 @@ module.exports = function($timeout) {
           }, 1000, false);
         }
 
-        //if(oldValue != undefined && oldValue > 0 && newValue == 0) {
         if((oldValue == undefined && newValue == 0) || (oldValue > 0 && newValue == 0)) {
           element.addClass('cell--highlight-green');
           $timeout(function() {

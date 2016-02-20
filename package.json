@@ -1,16 +1,15 @@
 {
-  "name": "angular-q-game",
+  "name": "fibonacci-game",
   "version": "1.0.0",
-  "description": "A simple game",
-  "main": "index.js",
+  "description": "A simple fibonacci game",
   "scripts": {
     "watch-tests": "karma start",
     "tests": "gulp test",
     "watch": "gulp watch",
     "build": "gulp build"
   },
-  "author": "Patrick",
-  "license": "ISC",
+  "author": "Patrick van Marsbergen <patrick@mimbee.nl>",
+  "license": "MIT",
   "devDependencies": {
     "angular": "^1.5.0",
     "angular-ui-router": "^0.2.18",

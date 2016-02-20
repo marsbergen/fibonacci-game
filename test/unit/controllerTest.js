@@ -1,4 +1,4 @@
-import AppController from '../app/js/controllers/AppController.js';
+import AppController from '../../app/js/controllers/AppController.js';
 
 describe('AppController', () => {
   it('should return false if there is no fibonacci in a row object', () => {
